@@ -1,0 +1,6 @@
+interface:
+  display_name: "Write Documents"
+  short_description: "Purposeful documents matched to audience knowledge"
+  default_prompt: "Use $write-documents to prepare a document matched to its purpose and audience."
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,6 @@
+interface:
+  display_name: "Implement With Tester"
+  short_description: "Workflow implementacji z agentem testow"
+  default_prompt: "Use $implement-with-tester to implement code changes and automatically hand off test authoring to a tester agent."
+policy:
+  allow_implicit_invocation: true
