@@ -23,7 +23,7 @@ Technical reasoning may follow from verified code or engineering analysis. Descr
 
 ## Useful detail and reuse
 
-Keep exact names and snippets when they define a contract or make a decision unambiguous. Label file inventories and implementation sketches as snapshots with a revision when useful. Do not treat every technical detail as equally binding.
+State contracts by meaning, not by name: the operations, their inputs and results, field semantics, errors, atomicity, ordering and idempotency. The implementer chooses file, function and type names, and a reviewer compares behaviour with the contract. "Implementable without guessing" refers to decisions and semantics, not to naming. Describe the current system in words ("the existing batch-save path") rather than paths; the implementer finds the code.
 
 Reference repository conventions and canonical architecture documentation when needed; describe only this change's exceptions and additions. The SD is not a second copy of the repository's test or style instructions.
 
