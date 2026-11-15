@@ -23,6 +23,6 @@ The project's workflow file is the contract: read `docs/agents/implementation-wo
 
 6. **Write the bd tasks.** One task per slice, child of the epic, with the fields the workflow file names: document links in metadata, `spec_id`, acceptance criteria as `AC-ID: observable result`, native blocking edges. Leave them without `ready-for-agent`.
 
-7. **Hand off.** Run the readiness checklist on each task and show the user, per task: the documents, the acceptance criteria, the assumptions you recorded and anything marked `ready-for-human`. Apply `ready-for-agent` only to tasks the user approves. Done when every approved task carries `ready-for-agent` and every other task carries the label that says why it is waiting.
+7. **Hand off.** Run the readiness checklist on each task and show the user, per task: the documents, the acceptance criteria, the assumptions you recorded and anything marked `ready-for-human`. Apply `ready-for-agent` only to tasks the user approves. When every open task of the epic carries `ready-for-agent` or `ready-for-human`, ask the user to hand off the epic and apply `ready-for-agent` to it on their approval; the runner starts none of the epic's tasks before that. Done when every approved task carries `ready-for-agent`, every other task carries the label that says why it is waiting, and the epic carries `ready-for-agent` once all its tasks are prepared.
 
 Preparing tasks authorises document edits and bd writes. Implementation belongs to the runner after the hand-off.
