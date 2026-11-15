@@ -5,7 +5,7 @@ description: Create, review, and revise product requirements documents (PRDs), f
 
 # Product and solution specifications
 
-Produce specifications that distinguish product intent, observable behaviour, and technical decisions. Match detail to the next decision or implementation step. This skill works with a single repository, a central specifications repository, or standalone documents, without requiring a tracker or another skill.
+Produce specifications that distinguish product intent, observable behaviour, and technical decisions. Match detail to the next decision or implementation step. This skill works with documents in a project repository or standalone, without requiring a tracker or another skill.
 
 ## Document ownership
 
@@ -20,9 +20,9 @@ PRD → requirements → solution design is the direction of justification. Tech
 ## Start with the requested work
 
 1. Identify whether the user wants a new draft, a review, or a revision, and which document or slice is in scope. A review returns findings unless edits are requested. A request for one document does not require producing all three.
-2. Read existing relevant documents and project instructions. Use the project's templates, naming, language, repository map, and lifecycle where available. Apply this skill to their content rather than imposing new headings. A local domain skill can supply stricter project conventions.
+2. Read existing relevant documents and project instructions. Use the project's templates, naming, language, and lifecycle where available. Apply this skill to their content rather than imposing new headings. A local domain skill can supply stricter project conventions.
 3. Establish the sources and current decisions. Read linked source material needed for consequential claims; if unavailable, identify the gap. Read implementation code when an SD depends on existing behaviour. Verify where that code lives rather than inventing workspace paths.
-4. Read the relevant guide: [PRD](references/prd.md), [requirements](references/requirements.md), or [solution design](references/solution-design.md). For tracker handoff, multiple repositories, or combining skillsets, also read [workflow integration](references/workflow-integration.md).
+4. Read the relevant guide: [PRD](references/prd.md), [requirements](references/requirements.md), or [solution design](references/solution-design.md).
 
 For a new project without conventions, use the user's language and Markdown. A suitable default is `specs/<initiative>/PRD.md` and `specs/<initiative>/features/<slice>/{requirements,solution-design}.md`; use only the files needed. Place standalone documents in the requested output location. A readable slug is enough; ticket IDs are optional.
 
