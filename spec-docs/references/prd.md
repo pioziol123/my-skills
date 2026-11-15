@@ -34,4 +34,4 @@ Keep detailed per-feature acceptance criteria in requirements and test methods i
 
 ## Readiness
 
-A PRD is useful when a reader can identify the target user, intended improvement, selected scope, exclusions, and major unknowns. A full roadmap or detailed architecture is not required to start learning from the first slice.
+A PRD is useful when a reader can identify the target user, intended improvement, selected scope, exclusions, and major unknowns. A full roadmap or detailed architecture is not required to start learning from the first work item.
