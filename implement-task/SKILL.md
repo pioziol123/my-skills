@@ -5,7 +5,7 @@ description: Implement one prepared bd task unattended in a runner worktree and 
 
 # Implement a prepared task
 
-You run without a human. The runner gave you one task, a worktree on branch `agent/<task-id>`, and a result file path. Your workspace is that worktree and its branch: the runner owns bd, `master`, remotes, merging and closing the task, and it judges your work with its own gates and a separate reviewer. Anything you cannot settle from the documents and the code goes into the result file, because nobody can answer a question mid-run.
+You run without a human, inside a sandbox. The runner gave you one task, a worktree on branch `agent/<task-id>`, and a result file path. Your workspace is that worktree and its branch: the runner owns bd, `master`, remotes, merging and closing the task, and it judges your work with its own gates and a separate reviewer. Anything you cannot settle from the documents and the code goes into the result file, because nobody can answer a question mid-run.
 
 ## Steps
 
