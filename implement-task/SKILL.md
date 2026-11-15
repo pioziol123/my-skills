@@ -18,7 +18,7 @@ You run without a human, inside a sandbox. The runner gave you one task, a workt
    - a gap or contradiction in the documents that changes behaviour or a contract: stop, commit what is sound, and finish as `blocked` with the question;
    - new scope outside the slice: record it as a follow-up and carry on.
 
-4. **Verify.** Run the gate and every check the acceptance criteria name, using the commands section of the workflow file. Done when each criterion has evidence: the command or test, and its observed result.
+4. **Verify.** Run the gate and every check the acceptance criteria name, using the commands section of the workflow file, and fix what fails before going on. Done when the gate exits 0 on committed work and each criterion has evidence: the command or test, and its observed result.
 
 5. **Write the result file** at the path from the prompt, as JSON:
 
@@ -35,3 +35,5 @@ You run without a human, inside a sandbox. The runner gave you one task, a workt
    Use `"status": "blocked"` with `question` set when step 3 stopped you or a criterion cannot be met. Every acceptance criterion appears in `evidence` when the status is `done`.
 
 Finish with the worktree clean: all work committed, nothing left uncommitted.
+
+The runner checks your work after you finish. When it finds a problem it sends the report back into this same session: treat it like a failing check from step 4, fix it, rerun the gate, commit and rewrite the result file.
