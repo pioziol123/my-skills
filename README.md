@@ -9,6 +9,8 @@ Personal agent skills maintained in one Git repository. On this Mac, Codex loads
 | `write-documents/` | Write documents matched to their purpose and audience, using Diátaxis to choose an appropriate form. |
 | `spec-docs/` | Create and revise product requirements, feature requirements, and solution designs. |
 | `implement-with-tester/` | Coordinate implementation with a separate agent responsible for testing. |
+| `task-prep/` | Turn any input into specification documents and a bd task ready for unattended implementation. |
+| `implement-task/` | Implement one prepared bd task unattended in a runner worktree and report a result file. |
 
 Each skill starts with `SKILL.md`. Its `references/` and `agents/` directories contain supporting instructions or interface metadata where needed.
 
@@ -25,7 +27,7 @@ The current checkout is `/Users/piotrziolkowski/Documents/my-skills`. The follow
 ```sh
 skills_repo="/Users/piotrziolkowski/Documents/my-skills"
 mkdir -p "$HOME/.codex/skills"
-for skill in write-documents spec-docs implement-with-tester; do
+for skill in write-documents spec-docs implement-with-tester task-prep implement-task; do
   destination="$HOME/.codex/skills/$skill"
   if [ -e "$destination" ] || [ -L "$destination" ]; then
     printf 'Already exists: %s\n' "$destination"

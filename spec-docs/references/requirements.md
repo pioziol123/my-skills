@@ -19,6 +19,8 @@ Express context, action/event, and observable result. Given/When/Then is optiona
 
 Example: "Given a member without edit permission, when they try to change a saved collection, the change is rejected and the saved collection remains unchanged."
 
+Write criteria in functional terms. Name how each is checked (an automated test against a real database, a check of the running product, a review) without test file names, functions, libraries or directories; those belong to the solution design.
+
 Include negative and boundary cases that matter to the selected behaviour, rather than exhaustively listing every imaginable failure. "Works correctly" and "is fast" are not decidable criteria. A latency target needs a workload and measurement boundary; when these are unknown, record the target as an open decision or proposal.
 
 Each in-scope requirement needs an acceptance condition. Criteria must not silently introduce extra scope. An accepted requirement may deliberately have no separately documented rationale.

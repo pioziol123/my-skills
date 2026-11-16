@@ -14,6 +14,8 @@ Adapt these sections to the existing template and maturity of the work:
 6. **Constraints and dependencies:** genuine business, operational, legal, or interoperability constraints supported by sources. Include a technical constraint here when it externally limits the product, with its origin.
 7. **Stages and unknowns:** outcomes for later stages, key assumptions to validate, unresolved product decisions, and links to existing feature specifications.
 
+Keep the PRD short enough to read in a few minutes. Leave technical solutions to the SD and detailed rules to the requirements.
+
 For an early vision, a short document covering the problem, audience, outcome, first scope, and unknowns is enough. Omit irrelevant sections. For a meaningful missing fact, state what is unknown and what decision needs it, rather than leaving an unexplained placeholder.
 
 ## Product language
@@ -32,4 +34,4 @@ Keep detailed per-feature acceptance criteria in requirements and test methods i
 
 ## Readiness
 
-A PRD is useful when a reader can identify the target user, intended improvement, selected scope, exclusions, and major unknowns. A full roadmap or detailed architecture is not required to start learning from the first slice.
+A PRD is useful when a reader can identify the target user, intended improvement, selected scope, exclusions, and major unknowns. A full roadmap or detailed architecture is not required to start learning from the first work item.
