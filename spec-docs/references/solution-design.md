@@ -6,7 +6,7 @@ Use when creating or reviewing the technical design for a defined scope. Read th
 
 1. **Scope and document status:** requirements covered, unresolved decisions, source/code revision when useful, and how to read agreed constraints versus implementation snapshots.
 2. **Approach and boundaries:** components, responsibilities, data flow, and the smallest diagram that clarifies an important interaction.
-3. **Decisions:** chosen approach, reasoning and evidence, meaningful alternatives, tradeoffs, and assumptions under which the choice holds. Keep IDs stable. Label proposals and superseded decisions.
+3. **Decisions:** chosen approach, reasoning and evidence, meaningful alternatives, tradeoffs, and assumptions under which the choice holds. Keep IDs stable. Label proposals and superseded decisions. When the project's architecture rules list design costs, check each option against them and record a cost the chosen option carries as part of its decision.
 4. **Contracts and invariants:** externally observable interfaces and persisted semantics that implementation must preserve.
 5. **Change and release approach:** relevant compatibility, migration, ordering across components, recovery, and rollout considerations.
 6. **Verification:** how to establish acceptance and test the particular risks introduced by the change.
