@@ -6,12 +6,27 @@ Use when creating or reviewing the technical design for a defined scope. Read th
 
 1. **Scope and document status:** requirements covered, unresolved decisions, source/code revision when useful, and how to read agreed constraints versus implementation snapshots.
 2. **Approach and boundaries:** components, responsibilities, data flow, and the smallest diagram that clarifies an important interaction.
-3. **Decisions:** chosen approach, reasoning and evidence, meaningful alternatives, tradeoffs, and assumptions under which the choice holds. Keep IDs stable. Label proposals and superseded decisions. When the project's architecture rules list design costs, check each option against them and record a cost the chosen option carries as part of its decision.
+3. **Decisions:** each choice made among options, recorded as [Record decisions](#record-decisions) describes, with the assumptions under which it holds. Keep IDs stable. Label proposals and superseded decisions.
 4. **Contracts and invariants:** externally observable interfaces and persisted semantics that implementation must preserve.
 5. **Change and release approach:** relevant compatibility, migration, ordering across components, recovery, and rollout considerations.
 6. **Verification:** how to establish acceptance and test the particular risks introduced by the change.
 
 Scale this structure to the work. A small change may need only a few decisions and a contract. Record only relevant quality and operational concerns, tied to requirements or concrete failure modes.
+
+## Record decisions
+
+A decision is a choice between technical options that the owner made after weighing them: they proposed one and another was set beside it, or several were laid out and they picked. Everything else is written as a plain statement without alternatives: an answer to a clarifying question (one asking for a fact or an intent the owner holds), a point a requirement settles (cite its ID), behaviour observed in the existing code (marked as observed), and a choice an ADR or an earlier design already records (cite it rather than recording it again). The options a clarifying question named are not recorded.
+
+Each decision carries:
+
+- **The chosen option**, stated as a fact.
+- **The reason**, in the owner's words, or none. Keep their sentence as given; analysis of your own goes into the options' consequences.
+- **Each discarded option**, with why it was discarded: the owner's words, the verified fact that made them withdraw it, or "none recorded". Add its consequence in one line when it is a verified fact. List the options that were on the table, including ones the owner proposed and withdrew.
+- **The consequences of the chosen option** that the owner accepted, including any design cost from the project's architecture rules.
+
+Check each option against those architecture rules when the project has them, so the costs are on the table before the owner chooses.
+
+A proposal awaiting a decision follows the same shape, labelled as a proposal, with the reasoning marked as yours. When revising a design, keep the recorded options as they are; an option that was never weighed stays out of the record.
 
 ## Make contracts decidable
 
@@ -19,7 +34,7 @@ For affected payload or storage fields, define identifiers, types, allowed value
 
 For interactions, consider the semantics that actually matter: authorization boundaries, error outcomes, atomicity, retries and idempotency, ordering or concurrent updates, and side effects. State dangerous or surprising behaviour explicitly. An omitted list meaning "delete all" requires a deliberate decision and verification, not an accidental default.
 
-Technical reasoning may follow from verified code or engineering analysis. Describe inference as inference and uncertainty as uncertainty. A product rationale still needs a product source.
+Technical reasoning about facts and consequences may follow from verified code or engineering analysis; a decision's reason follows [Record decisions](#record-decisions). Describe inference as inference and uncertainty as uncertainty. A product rationale still needs a product source.
 
 ## Useful detail and reuse
 
