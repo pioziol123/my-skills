@@ -73,6 +73,12 @@ Write the next useful level of detail. For a large project, keep later stages at
 
 Preserve a single authoritative location for each rule or contract. Downstream documents reference upstream requirements and add decisions at their own level. Short contextual summaries are useful when clearly identified as summaries.
 
+An implementer reads every sentence as something to satisfy, so write only what must hold:
+
+- **Permissive constraints.** State the property that must hold ("one source of truth for the price list"), and leave the rest open. "And nothing else", "only" and "in exactly one place" belong in a document when that limit is itself the requirement, as in an acceptance criterion that a rejected change leaves the saved data as it was.
+- **Branch on the set.** For a set whose members change without a revision of the specification, write the rule for all, some or none of its members ("every source in the catalogue"), not for today's members ("both sources").
+- **An honest unknown.** A value nobody has decided is Open, as described in the evidence states above. A default is written only when a source sets it, the code shows it (Observed) or it is labelled Proposed.
+
 Keep stable requirement and decision IDs where they support cross-references; retain existing IDs when editing. For small documents, section links are enough. Mark removed or superseded referenced items rather than reusing their IDs for a different meaning.
 
 When revising, follow changed claims through the affected requirements, design, and linked work. Check additions and changed meanings as well as deletions. Update authorized dependent documents; report anything inaccessible or outside the requested edit scope as needing reconciliation. Preserve the project's language and vocabulary, including exact contract terms.

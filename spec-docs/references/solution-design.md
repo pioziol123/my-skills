@@ -5,7 +5,7 @@ Use when creating or reviewing the technical design for a defined scope. Read th
 ## Content guide
 
 1. **Scope and document status:** requirements covered, unresolved decisions, source/code revision when useful, and how to read agreed constraints versus implementation snapshots.
-2. **Approach and boundaries:** components, responsibilities, data flow, and the smallest diagram that clarifies an important interaction.
+2. **Approach and boundaries:** components and their responsibilities, including the one owner of each fact the change shares between parts (the part that stores it, decides it or owns its fixed list); data flow, and the smallest diagram that clarifies an important interaction.
 3. **Decisions:** each choice made among options, recorded as [Record decisions](#record-decisions) describes, with the assumptions under which it holds. Keep IDs stable. Label proposals and superseded decisions.
 4. **Contracts and invariants:** externally observable interfaces and persisted semantics that implementation must preserve.
 5. **Change and release approach:** relevant compatibility, migration, ordering across components, recovery, and rollout considerations.
@@ -40,7 +40,9 @@ Technical reasoning about facts and consequences may follow from verified code o
 
 State contracts by meaning, not by name: the operations, their inputs and results, field semantics, errors, atomicity, ordering and idempotency. The implementer chooses file, function and type names, and a reviewer compares behaviour with the contract. "Implementable without guessing" refers to decisions and semantics, not to naming. Describe the current system in words ("the existing batch-save path") rather than paths; the implementer finds the code.
 
-Reference repository conventions and canonical architecture documentation when needed; describe only this change's exceptions and additions. The SD is not a second copy of the repository's test or style instructions.
+Reference repository conventions and canonical architecture documentation when needed; describe what this change adds or alters and its exceptions to them. Something that stays as it is appears as an invariant under contracts and invariants, citing the requirement that protects it, or as context the change builds on. The SD is not a second copy of the repository's test or style instructions.
+
+The design states the current agreement. The progress of this change's implementation and its review rounds live in the tracker and version control; superseded decisions stay labelled in place.
 
 For a port, design the integration and differences: compatibility gaps, state ownership, adapters, production requirements, and regression risks. Reuse verified logic while making its relevant contracts discoverable. Prior prototype success is evidence, not proof that production requirements are met.
 
