@@ -15,8 +15,10 @@ You run without a human, inside a sandbox. The runner gave you one task, a workt
 
 3. **Classify discoveries** as they appear, using the workflow file's rules:
    - a defect inside the task: fix it;
-   - a gap or contradiction in the documents that changes behaviour or a contract: stop, commit what is sound, and finish as `blocked` with the question;
-   - new scope outside the task: record it as a follow-up and carry on.
+   - a spec conflict, a gap or contradiction in the documents: walk the classification in the workflow file's section "Spec conflicts during implementation", with the epic's `load_bearing` list and open follow-ups from the prompt. An **assumption** you decide by precedence and record; a **deviation** you implement as interim code with its marker, describe as a follow-up with the `write-documents` skill, and carry on; anything else stops you: commit what is sound and finish as `blocked` with the question;
+   - new scope outside the task: record it under `new_scope` and carry on.
+
+   Build nothing new on another follow-up's interim code (its marker is in the prompt). Done when every conflict you met has one of the three outcomes.
 
 4. **Verify.** Run the gate and every check the acceptance criteria name, using the commands section of the workflow file, and fix what fails before going on. Done when the gate exits 0 on committed work and each criterion has evidence: the command or test, and its observed result.
 
@@ -27,12 +29,30 @@ You run without a human, inside a sandbox. The runner gave you one task, a workt
      "status": "done",
      "summary": "what changed, in two or three sentences",
      "evidence": [{ "ac": "AC-01", "check": "pnpm vitest run test/x.test.ts", "result": "passed" }],
-     "followups": [{ "title": "...", "description": "..." }],
+     "assumptions": [{
+       "id": "ASM-1",
+       "requirements": ["R-05", "T2-R02"],
+       "gap": "what the documents leave open",
+       "decision": "what the code does",
+       "rule": "the precedence rule applied",
+       "if_reversed": "what changes if the owner decides otherwise"
+     }],
+     "deviations": [{
+       "id": "DEV-1",
+       "kind": "contradiction | underspecified | blocked-by-task",
+       "requirements": ["R-01", "T2-AC05"],
+       "deferred_acs": ["T2-AC05"],
+       "interim": "what the code does until the follow-up",
+       "qualification": "how each qualification criterion holds",
+       "title": "follow-up title",
+       "description": "the full follow-up description"
+     }],
+     "new_scope": [{ "title": "...", "description": "..." }],
      "question": null
    }
    ```
 
-   Use `"status": "blocked"` with `question` set when step 3 stopped you or a criterion cannot be met. Every acceptance criterion appears in `evidence` when the status is `done`.
+   Use `"status": "blocked"` with `question` set when step 3 stopped you or a criterion cannot be met. When the status is `done`, every acceptance criterion appears either in `evidence` or in one deviation's `deferred_acs`, and every deviation's marker `FOLLOW-UP(<task id>/<deviation id>)` is in the committed code. Leave the lists empty when there is nothing to report.
 
 Finish with the worktree clean: all work committed, nothing left uncommitted.
 
