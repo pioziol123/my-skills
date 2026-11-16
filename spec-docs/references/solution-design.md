@@ -34,7 +34,7 @@ For affected payload or storage fields, define identifiers, types, allowed value
 
 For interactions, consider the semantics that actually matter: authorization boundaries, error outcomes, atomicity, retries and idempotency, ordering or concurrent updates, and side effects. State dangerous or surprising behaviour explicitly. An omitted list meaning "delete all" requires a deliberate decision and verification, not an accidental default.
 
-Technical reasoning about facts and consequences may follow from verified code or engineering analysis; a decision's reason follows [Record decisions](#record-decisions). Describe inference as inference and uncertainty as uncertainty. A product rationale still needs a product source.
+Technical reasoning about facts and consequences may follow from verified code or engineering analysis; a decision's reason follows [Record decisions](#record-decisions). Describe inference as inference and uncertainty as uncertainty. A product rationale still needs a product source. A product rule the design turns out to need (who may do what, which cases get special treatment, what the user sees) goes to the requirements as a question for their owner and stays Open in the design until they settle it.
 
 ## Useful detail and reuse
 

@@ -11,12 +11,13 @@ You run without a human, inside a sandbox. The runner gave you one task, a workt
 
 1. **Read the contract.** Read the task in the prompt, then every document it links (PRD, requirements, solution design) in full, then the project's agent instructions and the process contract and architecture rules they name. If the prompt includes a failure report from an earlier attempt, read it as the first thing to fix. Done when you can name, for each acceptance criterion, the check that proves it.
 
-2. **Implement.** Work test-first with the `tdd` skill where the solution design names a seam. Follow the design's contracts exactly; reuse the patterns the code already has. Keep the change inside the task. Commit on the current branch as you reach green steps, each message starting with the task id.
+2. **Implement.** Work test-first with the `tdd` skill where the solution design names a seam. Follow the design's contracts exactly and the patterns the code already has. Before adding a mechanism the design leaves to you, find the closest existing analog by searching for its concept under the names the codebase and its glossary use, read it end to end, and extend its pattern unless the design discarded it. Keep the change inside the task. Commit on the current branch as you reach green steps, each message starting with the task id.
 
 3. **Classify discoveries** as they appear, using the process contract's rules:
    - a defect inside the task: fix it;
    - a spec conflict, a gap or contradiction in the documents: walk the classification in the process contract's section "Spec conflicts during implementation", with the epic's `load_bearing` list and open follow-ups from the prompt. An **assumption** you decide by precedence, record, and pin with a test of the case it rests on; a **deviation** you implement as interim code with its marker, describe as a follow-up with the `write-documents` skill, and carry on; anything else stops you: commit what is sound and finish as `blocked` with the question;
    - a design cost from the architecture rules that your change would carry and the solution design does not record: take an option without it that the design has not discarded; when every option the design has not discarded carries one, treat it as a spec conflict, so a cost you keep becomes an assumption naming the cost, whose `requirements` lists the requirements the change serves and whose `rule` names the architecture rule instead of a precedence rule;
+   - a product rule the documents leave open (who may do what, which cases get special treatment, what the user sees): a spec conflict, settled from the documents alone, whatever the code happens to do today;
    - new scope outside the task: record it under `new_scope` and carry on.
 
    Build nothing new on another follow-up's interim code (its marker is in the prompt). Done when every conflict you met has one of the three outcomes.
