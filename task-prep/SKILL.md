@@ -17,9 +17,31 @@ The project's agent instructions index its documentation and name where each fam
 
 3. **Split the work into tasks.** Propose tasks following the task-size rule in the process contract, each a vertical, demoable increment, with blocking order. Mark small-lane candidates. Show the breakdown to the user and iterate until they approve it.
 
-4. **Specify each task.** Write or extend its requirements and solution design. Put decisions to the user in rounds: number each question and give your recommended answer. Check every option against the project's architecture rules and state the design costs from their list that an option carries, your recommended one included; a cost the user accepts goes into the design as part of that decision. Before writing a design's decisions, walk them with the user one at a time as they will be recorded: the chosen option, the discarded options, and the reason for each, asking for the user's reason where they gave none ("none" is an answer). The user says whether each entry stays a decision, becomes a plain fact, loses an option or leaves the record; this pass shapes only the record, and every choice stays as the user made it. Look up facts yourself in code and documents. An unknown that needs investigation becomes a bd `spike` blocking the task rather than a guess written as a requirement. Done when each acceptance criterion names how it is checked and every contract the task touches is stated exactly.
+4. **Specify each task.** Write or extend its requirements and solution design, looking up facts yourself in code and documents. Settle the requirements first, in rounds of numbered questions, each with your recommended answer.
 
-5. **Cross-check.** Every requirement of the task has an acceptance criterion; every criterion is covered by the design's verification; no design decision weakens a criterion; terms match the glossary. Fix the documents until the check is clean.
+   Then walk the design in levels, top down, one level per round, and start the next level after the user answers:
+
+   1. **Responsibilities:** which part of the system owns what data and rules, decides what, and owns each fixed list.
+   2. **Communication:** what crosses between those parts, in which direction, triggered by what.
+   3. **Inside each part:** what is stored and in what shape, what a contract carries, what the flow does on the normal path and on refusal.
+   4. **Outside systems and rollout:** external services touched, migrations, deployment order.
+
+   Open the design by asking how the user would build it, naming these levels; the user may add, drop or reorder them. For a small-lane task, one round covers the levels that hold a choice. Check every option at its level against the project's architecture rules, your recommended one included, and name the design costs from the architecture rules' list that it carries. Each round holds, in order:
+
+   - **Proposal:** the user's proposal for this level, taken from their opening answer or asked for now, in a line or two.
+   - **Agreement:** where you agree, in one line. A proposal you agree with is recorded as a plain statement.
+   - **Challenge:** your option set beside the user's, each with its consequences and design costs, and your recommendation. Raise it when you hold a checkable argument against the proposal: a fact verified in code or documents, an architecture rule or a design cost, a requirement the proposal misses, or a concrete failure scenario.
+   - **Questions:** the questions of this level only. Their answers are plain statements, and the options a question named stay out of the record.
+
+   Each choice gets one challenge. The user's answer, a revised proposal included, closes it; a fact found later that breaks it goes to the user as that fact. A challenged choice is recorded as a decision with both options: the one not chosen is discarded with the user's reason, or, when the user withdrew their own proposal, with the fact that changed it. A cost the user accepts goes into the design as part of that decision.
+
+   When the user has no proposal for a level, lay out the options with their consequences and design costs and recommend one, still one level at a time.
+
+   An unknown that needs investigation becomes a bd `spike` blocking the task, and the requirements state only what is known.
+
+   Before writing a design's decisions, walk them with the user one at a time as they will be recorded: the chosen option, the discarded options, and the reason for each, asking for the user's reason where they gave none ("none" is an answer). The user says whether each entry stays a decision, becomes a plain fact, loses an option or leaves the record; this pass shapes only the record, and every choice stays as the user made it. Done when every level is walked or dropped by the user, the user has confirmed the decision record, each acceptance criterion names how it is checked, and every contract the task touches is stated exactly.
+
+5. **Cross-check.** Every requirement of the task has an acceptance criterion; every criterion is covered by the design's verification; no design decision weakens a criterion; terms match the glossary. Fix the documents until the check is clean; a decision that weakens a criterion goes back to the user as that fact.
 
 6. **Write the bd tasks.** One bd task per increment, child of the epic, with the fields the process contract names: document links in metadata, `spec_id`, acceptance criteria as `AC-ID: observable result`, native blocking edges. Leave them without `ready-for-agent`.
 
