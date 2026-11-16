@@ -15,7 +15,7 @@ You run without a human, inside a sandbox. The runner gave you one task, a workt
 
 3. **Classify discoveries** as they appear, using the workflow file's rules:
    - a defect inside the task: fix it;
-   - a spec conflict, a gap or contradiction in the documents: walk the classification in the workflow file's section "Spec conflicts during implementation", with the epic's `load_bearing` list and open follow-ups from the prompt. An **assumption** you decide by precedence and record; a **deviation** you implement as interim code with its marker, describe as a follow-up with the `write-documents` skill, and carry on; anything else stops you: commit what is sound and finish as `blocked` with the question;
+   - a spec conflict, a gap or contradiction in the documents: walk the classification in the workflow file's section "Spec conflicts during implementation", with the epic's `load_bearing` list and open follow-ups from the prompt. An **assumption** you decide by precedence, record, and pin with a test of the case it rests on; a **deviation** you implement as interim code with its marker, describe as a follow-up with the `write-documents` skill, and carry on; anything else stops you: commit what is sound and finish as `blocked` with the question;
    - new scope outside the task: record it under `new_scope` and carry on.
 
    Build nothing new on another follow-up's interim code (its marker is in the prompt). Done when every conflict you met has one of the three outcomes.
