@@ -21,7 +21,7 @@ Example: "Given a member without edit permission, when they try to change a save
 
 Write criteria in functional terms. Name how each is checked (an automated test against a real database, a check of the running product, a review) without test file names, functions, libraries or directories; those belong to the solution design.
 
-Include negative and boundary cases that matter to the selected behaviour, rather than exhaustively listing every imaginable failure. "Works correctly" and "is fast" are not decidable criteria. A latency target needs a workload and measurement boundary; when these are unknown, record the target as an open decision or proposal.
+Include negative and boundary cases that matter to the selected behaviour, rather than exhaustively listing every imaginable failure. "Works correctly" and "is fast" are not decidable criteria. Neither is a reference to behaviour the criterion does not name: "works as before", "unchanged", "as today", "where needed". Name each behaviour that must hold, as its own criterion or in a list the criterion cites. A case nobody has decided is Open; leaving it out is not an answer. A latency target needs a workload and measurement boundary; when these are unknown, record the target as an open decision or proposal.
 
 Each in-scope requirement needs an acceptance condition. Criteria must not silently introduce extra scope. An accepted requirement may deliberately have no separately documented rationale.
 

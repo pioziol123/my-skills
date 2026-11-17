@@ -91,6 +91,7 @@ Before delivering:
 
 - Check that each in-scope requirement has an observable acceptance condition, and that the SD's relevant decisions and verification cover it. Use links or a small mapping only when useful.
 - Check for unsupported scope, invented reasons, unexplained contradictions, and missing semantics in the contracts touched by the change.
+- Check that no statement refers to behaviour it does not name ("as before", "unchanged", "correctly"): each names the behaviour, cites a list that names it, or is marked Open.
 - Check affected cross-references, vocabulary, document paths, and source availability.
 - Check the levels. The PRD and requirements hold no code identifiers, paths, library protocols or function names (tracker and requirement IDs are fine); a search for backticked identifiers in them should find only IDs. The SD holds no paths, file names or function names. When the project provides a check for this, run it on the documents you changed and resolve what it reports. The PRD reads in a few minutes. Genuine external constraints stay in the PRD even when technical.
 - List remaining material questions and state what each blocks. A draft with open decisions is still a valid deliverable. Describe it as ready for implementation only for the portions whose material questions are resolved; never imply stakeholder approval that was not given.
