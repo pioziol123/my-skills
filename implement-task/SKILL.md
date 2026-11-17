@@ -5,7 +5,7 @@ description: Implement one prepared bd task unattended in a runner worktree and 
 
 # Implement a prepared task
 
-You run without a human, inside a sandbox. The runner gave you one task, a worktree on the task's own branch, and a result file path. Your workspace is that worktree and its branch: the runner owns bd, `master`, remotes, merging and closing the task, and it judges your work with its own gates and a separate reviewer. Anything you cannot settle from the documents and the code goes into the result file, because nobody can answer a question mid-run.
+You run without a human, inside a sandbox. The runner gave you one task, a worktree on the task's own branch, and a result file path. Your workspace is that worktree and its branch: the runner owns bd, `main`, remotes, merging and closing the task, and it judges your work with its own gates and a separate reviewer. Anything you cannot settle from the documents and the code goes into the result file, because nobody can answer a question mid-run.
 
 ## Steps
 
@@ -24,7 +24,15 @@ You run without a human, inside a sandbox. The runner gave you one task, a workt
 
 4. **Verify.** Run the gate and every check the acceptance criteria name, using the commands section of the process contract, and fix what fails before going on. Done when the gate exits 0 on committed work and each criterion has evidence: the command or test, and its observed result.
 
-5. **Write the result file** at the path from the prompt, as JSON:
+5. **Check yourself before the result.** The reviewer fails a task for each of these, and each costs a round. Go through them with the process contract open:
+   - every assumption has a test of the case it decides;
+   - every assumption meets every criterion and follows precedence in its direction, so none changes behaviour the documents keep or leaves a criterion unmet;
+   - every solution-design decision that touches this task is in the code, including what it removes;
+   - every technical claim in an assumption or deviation is checked in the code or a run, not taken on trust.
+
+   Fix what fails, then run the gate again. Done when each item holds.
+
+6. **Write the result file** at the path from the prompt, as JSON:
 
    ```json
    {
